@@ -16,6 +16,5 @@ int print_string(va_list list)
 		size++;
 	}
 	_putchar('\n');
-	
 	return (size);
 }

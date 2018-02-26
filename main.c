@@ -6,5 +6,5 @@
  */
 int main(void)
 {
-	return _printf("String:[%s]\n", "I am a string !");
+	return (_printf("String:[%s]\n", "I am a string !"));
 }
