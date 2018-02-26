@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include <stdio.h>
 /**
  * main - prints a name as is
  *
@@ -6,5 +7,7 @@
  */
 int main(void)
 {
-	return (_printf("String:[%s]\n", "I am a string !"));
+	_printf("Character:[%c]\n", 'H');
+    printf("Character:[%c]\n", 'H');
+    return (0);
 }
