@@ -12,7 +12,7 @@ int _printf(const char *format, ...)
 	int i = 0, j = 0;
 
 	if (format == 0)
-		return (0);
+		return (-1);
 
 	va_start(list, format);
 
@@ -30,17 +30,16 @@ int _printf(const char *format, ...)
 		j = 0;
 		while (specifiers[j].type != '\0')
 		{
-			if (specifiers[j].type == format[i])
+			if (format[i] == '%')
 			{
-				specifiers[j].p(list);
+				if (specifiers[j].type == format[i + 1])
+					return (specifiers[j].p(list));
 			}
 			j++;
 		}
 		i++;
 	}
-
 	va_end(list);
 
 	return (0);
-
 }

@@ -8,14 +8,17 @@ void find_num(int n);
  *
  * Return: Nothing.
  */
-void print_int(va_list list)
+int print_int(va_list list)
 {
 	int number;
 
 	number = va_arg(list, int);
 
 	find_num(number);
+
 	_putchar('\n');
+
+	return (0);
 }
 
 /**

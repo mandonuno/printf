@@ -5,7 +5,7 @@
  *
  * Return: Nothing.
  */
-void print_string(va_list list)
+int print_string(va_list list)
 {
 	int size = 0;
 	char *args_string = va_arg(list, char*);
@@ -16,4 +16,6 @@ void print_string(va_list list)
 		size++;
 	}
 	_putchar('\n');
+	
+	return (size);
 }

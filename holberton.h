@@ -13,17 +13,17 @@
 typedef struct specifiers
 {
 	char type;
-	void (*p)(va_list);
+	int (*p)(va_list);
 } sel;
 
 int _printf(const char *format, ...);
 
 int _putchar(char c);
 
-void print_char(va_list list);
+int print_char(va_list list);
 
-void print_int(va_list list);
+int print_int(va_list list);
 
-void print_string(va_list list);
+int print_string(va_list list);
 
 #endif
