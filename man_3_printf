@@ -1,12 +1,12 @@
 .TH man 2 "28 February 2018" "0.32" "_printf man page"
 .SH NAME
 .B _printf
-- An implementation of printf for Holberton School project. 
+ An implementation of printf for Holberton School project.
 .SH SYNOPSIS
 _printf() should reproduce all functionality of the printf function.
 #include "holberton.h"
 
-int printf(const char *format, ...)
+int printf(const char *format, ...);
 
 .SH DESCRIPTION
 The functions in the _printf() function will produce output according to a specified format. _printf() write output to stdout.
@@ -18,7 +18,7 @@ Upon successful return, the function returns the number of characters printed. I
 .B d, i
 
 The int argument is converted to signed decimal notation.
- 
+
 .B c
 
 The int argument is converted to an unsigned char, and the resulting character is written.

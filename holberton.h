@@ -5,7 +5,7 @@
 #include <unistd.h>
 
 /**
- * struct specifiers - Struct format
+ * struct op - Struct format
  *
  * @type: The data type
  * @p: The function associated
