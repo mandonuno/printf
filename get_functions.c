@@ -13,6 +13,8 @@ int get_functions(const char *format, va_list list, int pos)
 	op_t op[] = {
 		{'c', print_char},
 		{'s', print_string},
+		{'d', print_numbers},
+		{'i', print_numbers},
 		{'\0', NULL}
 	};
 	i = count = 0;
