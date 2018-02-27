@@ -1,45 +1,46 @@
 #include "holberton.h"
+#include <stdarg.h>
+#include <stdio.h>
+#include <stdlib.h>
 /**
- * _printf - prints a name as is
- * @format: args
- *
- * Return: Nothing.
+ * _printf - custom printf function
+ * @format: format to print
+ * Return: number of characters printed
  */
 int _printf(const char *format, ...)
 {
 	va_list list;
+	int i, count;
 
-	int i = 0, j = 0;
-
-	if (format == 0)
+	if (format == NULL)
 		return (-1);
-
 	va_start(list, format);
-
-	sel specifiers[] = {
-		{'c', print_char},
-		{'i', print_int},
-		{'d', print_int},
-		{'f', 0},
-		{'s', print_string},
-		{'\0', 0}
-	};
-
+	i = count = 0;
 	while (format[i] != '\0')
 	{
-		j = 0;
-		while (specifiers[j].type != '\0')
+		if (format[i] == '%' && format[i + 1] == '%')
 		{
-			if (format[i] == '%')
-			{
-				if (specifiers[j].type == format[i + 1])
-					return (specifiers[j].p(list));
-			}
-			j++;
+			_putchar('%');
+			count++;
+			i++;
+		}
+		else if (format[i] == '%' && format[i + 1] != '%'
+			 && format[i + 1] != '\0')
+		{
+			i++;
+			count += get_functions(format, list, i);
+		}
+		else if (format[i] == '%' && (format[i + 1] == '\0'))
+		{
+			return (-1);
+		}
+		else
+		{
+			_putchar(format[i]);
+			count++;
 		}
 		i++;
 	}
 	va_end(list);
-
-	return (0);
+	return (count);
 }
