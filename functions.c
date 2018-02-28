@@ -45,38 +45,39 @@ int print_string(va_list list)
  */
 int print_numbers(va_list list)
 {
-	int number = 0;
+	int n, to_print, tens = 1, counter = 0;
 
-	number = va_arg(list, int);
-	find_num(number);
-	return (0);
-}
+	n = va_arg(list, int);
+	
+	if (n < 0)
+	{
+		n *= -1;
+		_putchar('-');
+	}
 
-/**
- * find_num - prints a name as is
- * @n: number to find
- *
- * Return: Nothing.
- */
-int find_num(int n)
-{
 	if (n == 0)
 	{
 		_putchar('0');
-		return (0);
 	}
 	else
 	{
-		if (n < 0)
+
+		while (tens < n)
 		{
-			_putchar('-');
-			n *= -1;
+			tens *= 10;
 		}
-		if (n / 10)
+		tens /= 10;
+
+		while (tens >= 1)
 		{
-			find_num(n / 10);
+			to_print = n / tens;
+			_putchar(to_print + '0');
+			n = (n - (tens * to_print));
+			tens /= 10;
+			counter++;
 		}
-		_putchar(n % 10 + '0');
-		return (n % 10);
 	}
+	return (counter);
 }
+
+
