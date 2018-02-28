@@ -48,7 +48,7 @@ int print_numbers(va_list list)
 	int n, to_print, tens = 1, counter = 0;
 
 	n = va_arg(list, int);
-	
+
 	if (n < 0)
 	{
 		n *= -1;
