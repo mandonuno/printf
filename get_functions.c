@@ -22,7 +22,18 @@ int get_functions(const char *format, va_list list, int pos)
 	{
 		if (format[pos] == op[i].type)
 		{
-			count += (op[i].p(list));
+			/*
+			* adding this condition so that
+			we don't also return the string stuff for digits
+			*/
+			if (format[pos] == 'd' || format[pos] == 'i')
+			{
+				count -= (op[i].p(list));
+			}
+			else
+			{
+				count += (op[i].p(list));
+			}
 			break;
 		}
 		i++;
