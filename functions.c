@@ -53,11 +53,13 @@ int print_numbers(va_list list)
 	{
 		n *= -1;
 		_putchar('-');
+		counter++;
 	}
 
 	if (n == 0)
 	{
 		_putchar('0');
+		counter++;
 	}
 	else
 	{
